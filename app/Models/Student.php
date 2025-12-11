@@ -75,6 +75,22 @@ class Student extends Model
     }
 
     /**
+     * Get all recommendations for this student.
+     */
+    public function recommendations(): HasMany
+    {
+        return $this->hasMany(Recommendation::class);
+    }
+
+    /**
+     * Get all assessments for this student.
+     */
+    public function assessments(): HasMany
+    {
+        return $this->hasMany(Assessment::class);
+    }
+
+    /**
      * Check if student profile is completed.
      */
     public function isProfileCompleted(): bool
