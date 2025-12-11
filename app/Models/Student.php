@@ -51,6 +51,22 @@ class Student extends Model
     }
 
     /**
+     * Get all learning style profiles for this student (historical).
+     */
+    public function learningStyleProfiles(): HasMany
+    {
+        return $this->hasMany(LearningStyleProfile::class);
+    }
+
+    /**
+     * Get all survey responses for this student.
+     */
+    public function surveyResponses(): HasMany
+    {
+        return $this->hasMany(SurveyResponse::class);
+    }
+
+    /**
      * Get all learning activities for this student.
      */
     public function learningActivities(): HasMany

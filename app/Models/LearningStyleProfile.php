@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class LearningStyleProfile extends Model
 {
@@ -12,6 +13,7 @@ class LearningStyleProfile extends Model
 
     protected $fillable = [
         'student_id',
+        'survey_response_id',
         'visual_score',
         'auditory_score',
         'kinesthetic_score',
@@ -39,6 +41,14 @@ class LearningStyleProfile extends Model
     public function student(): BelongsTo
     {
         return $this->belongsTo(Student::class);
+    }
+
+    /**
+     * Get the survey response that created this profile.
+     */
+    public function surveyResponse(): BelongsTo
+    {
+        return $this->belongsTo(SurveyResponse::class);
     }
 
     /**

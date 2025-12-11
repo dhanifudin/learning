@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
             GradeSubjectsSeeder::class,
             UsersSeeder::class,
             ContentSeeder::class,
+            LearningStyleSurveySeeder::class,
         ]);
     }
 }
