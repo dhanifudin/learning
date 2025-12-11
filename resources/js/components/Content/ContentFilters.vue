@@ -37,7 +37,7 @@ const props = defineProps({
   },
   routeUrl: {
     type: String,
-    default: '/student/content'
+    default: '/dashboard'
   }
 })
 

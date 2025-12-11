@@ -10,9 +10,9 @@ import { Badge } from '@/components/ui/badge'
 import Heading from '@/components/Heading.vue'
 import Icon from '@/components/Icon.vue'
 // Route functions - using hardcoded URLs for now
-const getContentUrl = () => '/student/content'
-const getRecommendationsUrl = () => '/student/content/recommendations'
-const getRecentUrl = () => '/student/content/recent'
+const getContentUrl = () => '/dashboard'
+const getRecommendationsUrl = () => '/dashboard/filter/recommendations'
+const getRecentUrl = () => '/dashboard/filter/recent'
 
 const props = defineProps({
   content: {

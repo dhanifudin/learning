@@ -207,7 +207,7 @@ const ratingStars = computed(() => {
       <div class="flex gap-2 w-full">
         <Button
           as="Link"
-          :href="`/student/content/${content.id}`"
+          :href="`/dashboard/${content.id}`"
           class="flex-1"
           variant="default"
         >
@@ -218,7 +218,7 @@ const ratingStars = computed(() => {
         <Button
           v-if="content.file_url && content.content_type === 'pdf'"
           as="Link"
-          :href="`/student/content/${content.id}/download`"
+          :href="`/dashboard/${content.id}/download`"
           variant="outline"
           size="sm"
         >

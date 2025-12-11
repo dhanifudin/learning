@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 use Laravel\Fortify\Features;
 use App\Http\Controllers\LearningStyleSurveyController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Student\ContentController as StudentContentController;
 use App\Http\Controllers\Teacher\ContentController as TeacherContentController;
 
@@ -14,9 +15,32 @@ Route::get('/', function () {
     ]);
 })->name('home');
 
-Route::get('dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Unified Dashboard Route based on user role
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    
+    // Content routes accessible from dashboard based on role
+    Route::get('/dashboard/create', [DashboardController::class, 'create'])->name('dashboard.create');
+    Route::post('/dashboard', [DashboardController::class, 'store'])->name('dashboard.store');
+    Route::get('/dashboard/{id}', [DashboardController::class, 'show'])->name('dashboard.show');
+    Route::get('/dashboard/{id}/edit', [DashboardController::class, 'edit'])->name('dashboard.edit');
+    Route::put('/dashboard/{id}', [DashboardController::class, 'update'])->name('dashboard.update');
+    Route::delete('/dashboard/{id}', [DashboardController::class, 'destroy'])->name('dashboard.destroy');
+    
+    // Student-specific routes
+    Route::post('/dashboard/{id}/complete', [DashboardController::class, 'markComplete'])->name('dashboard.complete');
+    Route::get('/dashboard/{id}/download', [DashboardController::class, 'download'])->name('dashboard.download');
+    Route::post('/dashboard/{id}/track', [DashboardController::class, 'track'])->name('dashboard.track');
+    Route::get('/dashboard/filter/recommendations', [DashboardController::class, 'recommendations'])->name('dashboard.recommendations');
+    Route::get('/dashboard/filter/recent', [DashboardController::class, 'recent'])->name('dashboard.recent');
+    Route::get('/dashboard/filter/search', [DashboardController::class, 'search'])->name('dashboard.search');
+    Route::get('/dashboard/subject/{subject}', [DashboardController::class, 'bySubject'])->name('dashboard.by-subject');
+    
+    // Teacher-specific routes
+    Route::post('/dashboard/{id}/duplicate', [DashboardController::class, 'duplicate'])->name('dashboard.duplicate');
+    Route::post('/dashboard/{id}/toggle-status', [DashboardController::class, 'toggleStatus'])->name('dashboard.toggle-status');
+    Route::get('/dashboard/{id}/analytics', [DashboardController::class, 'analytics'])->name('dashboard.analytics');
+});
 
 // Learning Style Survey Routes
 Route::middleware(['auth', 'verified'])->group(function () {
@@ -38,48 +62,38 @@ Route::middleware(['auth', 'verified'])->group(function () {
     });
 });
 
-// Student Content Routes
-Route::middleware(['auth', 'verified', 'role:student'])->prefix('student')->name('student.')->group(function () {
-    Route::prefix('content')->name('content.')->group(function () {
-        Route::get('/test', [StudentContentController::class, 'test'])->name('test');
-        Route::get('/simple', [StudentContentController::class, 'simple'])->name('simple');
-        Route::get('/', [StudentContentController::class, 'index'])->name('index');
-        Route::get('/recommendations', [StudentContentController::class, 'recommendations'])->name('recommendations');
-        Route::get('/recent', [StudentContentController::class, 'recent'])->name('recent');
-        Route::get('/search', [StudentContentController::class, 'search'])->name('search');
-        Route::get('/subject/{subject}', [StudentContentController::class, 'bySubject'])->name('by-subject');
-        Route::get('/{id}', [StudentContentController::class, 'show'])->name('show');
-        Route::post('/{id}/complete', [StudentContentController::class, 'markComplete'])->name('complete');
-        Route::get('/{id}/download', [StudentContentController::class, 'download'])->name('download');
-        Route::post('/{id}/track', [StudentContentController::class, 'track'])->name('track');
+// Legacy route redirects for backward compatibility
+Route::middleware(['auth', 'verified'])->group(function () {
+    // Redirect old student content routes to dashboard
+    Route::prefix('student/content')->group(function () {
+        Route::get('/', function () {
+            return redirect('/dashboard');
+        });
+        Route::get('/{any}', function () {
+            return redirect('/dashboard');
+        })->where('any', '.*');
     });
-});
-
-// Teacher Content Routes
-Route::middleware(['auth', 'verified', 'role:teacher'])->prefix('teacher')->name('teacher.')->group(function () {
-    // Debug route to check teacher data
-    Route::get('/debug', function () {
+    
+    // Redirect old teacher content routes to dashboard
+    Route::prefix('teacher/content')->group(function () {
+        Route::get('/', function () {
+            return redirect('/dashboard');
+        });
+        Route::get('/{any}', function () {
+            return redirect('/dashboard');
+        })->where('any', '.*');
+    });
+    
+    // Debug route for teacher data (temporary)
+    Route::get('/debug/teacher', function () {
         $user = Auth::user();
-        $teacher = $user->teacher;
+        $teacher = $user->teacher ?? null;
         return response()->json([
             'user' => $user,
             'teacher' => $teacher,
             'user_role' => $user->role,
             'has_teacher_relationship' => $teacher ? 'yes' : 'no'
         ]);
-    });
-    
-    Route::prefix('content')->name('content.')->group(function () {
-        Route::get('/', [TeacherContentController::class, 'index'])->name('index');
-        Route::get('/create', [TeacherContentController::class, 'create'])->name('create');
-        Route::post('/', [TeacherContentController::class, 'store'])->name('store');
-        Route::get('/{id}', [TeacherContentController::class, 'show'])->name('show');
-        Route::get('/{id}/edit', [TeacherContentController::class, 'edit'])->name('edit');
-        Route::put('/{id}', [TeacherContentController::class, 'update'])->name('update');
-        Route::delete('/{id}', [TeacherContentController::class, 'destroy'])->name('destroy');
-        Route::post('/{id}/duplicate', [TeacherContentController::class, 'duplicate'])->name('duplicate');
-        Route::post('/{id}/toggle-status', [TeacherContentController::class, 'toggleStatus'])->name('toggle-status');
-        Route::get('/{id}/analytics', [TeacherContentController::class, 'analytics'])->name('analytics');
     });
 });
 

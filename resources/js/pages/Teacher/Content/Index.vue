@@ -66,7 +66,7 @@ const applyFilters = () => {
     filters.is_active = selectedStatus.value === 'active'
   }
 
-  router.get('/teacher/content', filters, {
+  router.get('/dashboard', filters, {
     preserveState: true,
     preserveScroll: true
   })
@@ -78,7 +78,7 @@ const clearFilters = () => {
   selectedContentType.value = ''
   selectedStatus.value = ''
   
-  router.get('/teacher/content', {}, {
+  router.get('/dashboard', {}, {
     preserveState: true,
     preserveScroll: true
   })
@@ -101,7 +101,7 @@ const clearFilters = () => {
         <div class="flex items-center gap-4">
           <Button
             as="Link"
-            href="/teacher/content/create"
+            href="/dashboard/create"
             variant="default"
           >
             <Icon name="plus" class="w-4 h-4 mr-2" />
@@ -295,7 +295,7 @@ const clearFilters = () => {
           <Button
             v-if="!hasFilters"
             as="Link"
-            href="/teacher/content/create"
+            href="/dashboard/create"
             variant="default"
           >
             <Icon name="plus" class="w-4 h-4 mr-2" />
