@@ -160,7 +160,7 @@ const props = defineProps({
             <div class="space-y-3 text-sm">
               <div class="flex justify-between">
                 <span class="text-gray-600">Laravel Version</span>
-                <span class="font-mono">{{ $page.props.laravel_version || '10.x' }}</span>
+                <span class="font-mono">{{ $page.props.laravel_version || '12.x' }}</span>
               </div>
               <div class="flex justify-between">
                 <span class="text-gray-600">Vue.js Version</span>
