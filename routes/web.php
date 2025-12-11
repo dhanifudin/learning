@@ -8,6 +8,7 @@ use App\Http\Controllers\LearningStyleSurveyController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Student\ContentController as StudentContentController;
 use App\Http\Controllers\Teacher\ContentController as TeacherContentController;
+use App\Http\Controllers\Student\AnalyticsController as StudentAnalyticsController;
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
@@ -35,6 +36,19 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard/filter/recent', [DashboardController::class, 'recent'])->name('dashboard.recent');
     Route::get('/dashboard/filter/search', [DashboardController::class, 'search'])->name('dashboard.search');
     Route::get('/dashboard/subject/{subject}', [DashboardController::class, 'bySubject'])->name('dashboard.by-subject');
+    
+    // Student Analytics Routes
+    Route::prefix('student/analytics')->name('student.analytics.')->middleware('role:student')->group(function () {
+        Route::get('/', [StudentAnalyticsController::class, 'index'])->name('index');
+        Route::get('/performance', [StudentAnalyticsController::class, 'performance'])->name('performance');
+        Route::get('/journey', [StudentAnalyticsController::class, 'learningJourney'])->name('journey');
+        Route::get('/patterns', [StudentAnalyticsController::class, 'studyPatterns'])->name('patterns');
+        Route::get('/report', [StudentAnalyticsController::class, 'generateReport'])->name('report');
+        Route::get('/data', [StudentAnalyticsController::class, 'analyticsData'])->name('data');
+        Route::get('/predictions', [StudentAnalyticsController::class, 'predictions'])->name('predictions');
+        Route::post('/feedback/{feedbackId}/read', [StudentAnalyticsController::class, 'markFeedbackRead'])->name('feedback.read');
+        Route::post('/recommendations/request', [StudentAnalyticsController::class, 'requestRecommendations'])->name('recommendations.request');
+    });
     
     // Teacher-specific routes
     Route::post('/dashboard/{id}/duplicate', [DashboardController::class, 'duplicate'])->name('dashboard.duplicate');

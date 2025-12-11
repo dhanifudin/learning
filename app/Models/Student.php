@@ -91,6 +91,38 @@ class Student extends Model
     }
 
     /**
+     * Get all feedback logs for this student.
+     */
+    public function feedbackLogs(): HasMany
+    {
+        return $this->hasMany(FeedbackLog::class);
+    }
+
+    /**
+     * Get all performance predictions for this student.
+     */
+    public function performancePredictions(): HasMany
+    {
+        return $this->hasMany(PerformancePrediction::class);
+    }
+
+    /**
+     * Get all competency maps for this student.
+     */
+    public function competencyMaps(): HasMany
+    {
+        return $this->hasMany(CompetencyMap::class);
+    }
+
+    /**
+     * Get all learning analytics for this student.
+     */
+    public function learningAnalytics(): HasMany
+    {
+        return $this->hasMany(LearningAnalytic::class);
+    }
+
+    /**
      * Check if student profile is completed.
      */
     public function isProfileCompleted(): bool
