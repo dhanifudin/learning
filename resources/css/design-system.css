@@ -1,0 +1,331 @@
+/* Enhanced Design System for Learning Platform - Phase 5 Implementation */
+
+/* Educational Color Palette - Indonesian Cultural Adaptation */
+:root {
+  /* Primary Colors - Professional Blue for Education */
+  --color-educational-primary: hsl(214 80% 52%); /* #2563eb - Primary blue */
+  --color-educational-primary-50: hsl(214 100% 97%);
+  --color-educational-primary-100: hsl(214 95% 93%);
+  --color-educational-primary-500: hsl(214 80% 52%);
+  --color-educational-primary-600: hsl(214 84% 46%);
+  --color-educational-primary-700: hsl(214 88% 40%);
+  
+  /* Indonesian Cultural Accent - Red */
+  --color-indonesian-red: hsl(348 83% 47%); /* #dc2626 - Indonesian flag red */
+  --color-indonesian-red-50: hsl(348 100% 97%);
+  --color-indonesian-red-100: hsl(348 100% 93%);
+  --color-indonesian-red-500: hsl(348 83% 47%);
+  
+  /* Learning State Colors */
+  --color-learning-success: hsl(160 84% 39%); /* #059669 - Completion green */
+  --color-learning-warning: hsl(32 95% 44%); /* #d97706 - Attention orange */
+  --color-learning-info: hsl(199 89% 48%); /* #0ea5e9 - Information blue */
+  --color-learning-neutral: hsl(220 9% 46%); /* #6b7280 - Neutral gray */
+  
+  /* Learning Style Colors */
+  --color-visual-learner: hsl(214 80% 52%); /* Blue for visual */
+  --color-auditory-learner: hsl(160 84% 39%); /* Green for auditory */
+  --color-kinesthetic-learner: hsl(32 95% 44%); /* Orange for kinesthetic */
+  
+  /* Semantic Educational Colors */
+  --color-assessment-pass: hsl(160 84% 39%);
+  --color-assessment-fail: hsl(348 83% 47%);
+  --color-recommendation: hsl(271 81% 56%); /* Purple for AI recommendations */
+  --color-progress: hsl(43 96% 56%); /* Yellow for progress */
+  
+  /* Typography Scale for Education Content */
+  --font-size-xs: 0.75rem; /* 12px - Small annotations */
+  --font-size-sm: 0.875rem; /* 14px - Body small */
+  --font-size-base: 1rem; /* 16px - Body text */
+  --font-size-lg: 1.125rem; /* 18px - Large body */
+  --font-size-xl: 1.25rem; /* 20px - Small heading */
+  --font-size-2xl: 1.5rem; /* 24px - Medium heading */
+  --font-size-3xl: 1.875rem; /* 30px - Large heading */
+  --font-size-4xl: 2.25rem; /* 36px - Extra large heading */
+  
+  /* Educational Spacing System */
+  --space-content: 1.5rem; /* 24px - Standard content spacing */
+  --space-section: 2.5rem; /* 40px - Section spacing */
+  --space-component: 1rem; /* 16px - Component spacing */
+  --space-tight: 0.5rem; /* 8px - Tight spacing */
+  --space-loose: 3rem; /* 48px - Loose spacing */
+  
+  /* Learning Interface Radius */
+  --radius-card: 0.75rem; /* 12px - Cards and containers */
+  --radius-button: 0.5rem; /* 8px - Buttons and inputs */
+  --radius-badge: 9999px; /* Fully rounded - Badges and pills */
+  
+  /* Shadow System for Educational Components */
+  --shadow-card: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --shadow-card-hover: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-modal: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  
+  /* Animation Durations for Smooth UX */
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+  --duration-slow: 350ms;
+  --duration-slower: 500ms;
+  
+  /* Z-index Scale for Learning Components */
+  --z-index-dropdown: 1000;
+  --z-index-sticky: 1010;
+  --z-index-fixed: 1020;
+  --z-index-modal: 1030;
+  --z-index-popover: 1040;
+  --z-index-tooltip: 1050;
+  --z-index-toast: 1060;
+}
+
+/* Dark Mode Educational Colors */
+.dark {
+  --color-educational-primary: hsl(214 80% 62%);
+  --color-indonesian-red: hsl(348 83% 57%);
+  --color-learning-success: hsl(160 84% 49%);
+  --color-learning-warning: hsl(32 95% 54%);
+  --color-learning-info: hsl(199 89% 58%);
+  --color-visual-learner: hsl(214 80% 62%);
+  --color-auditory-learner: hsl(160 84% 49%);
+  --color-kinesthetic-learner: hsl(32 95% 54%);
+  --color-assessment-pass: hsl(160 84% 49%);
+  --color-assessment-fail: hsl(348 83% 57%);
+  --color-recommendation: hsl(271 81% 66%);
+  --color-progress: hsl(43 96% 66%);
+}
+
+/* Educational Component Base Styles */
+@layer components {
+  /* Learning Card Components */
+  .learning-card {
+    @apply bg-white rounded-xl border border-gray-200 shadow-sm;
+    @apply hover:shadow-lg transition-all duration-300;
+  }
+  
+  .learning-card--interactive {
+    @apply bg-white rounded-xl border border-gray-200 shadow-sm cursor-pointer hover:scale-[1.02] active:scale-[0.98];
+    @apply hover:shadow-lg transition-all duration-300;
+  }
+  
+  /* Learning Style Indicators */
+  .learning-style--visual {
+    @apply text-blue-600 bg-blue-50 border-blue-200 dark:text-blue-400 dark:bg-blue-950 dark:border-blue-800;
+  }
+  
+  .learning-style--auditory {
+    @apply text-green-600 bg-green-50 border-green-200 dark:text-green-400 dark:bg-green-950 dark:border-green-800;
+  }
+  
+  .learning-style--kinesthetic {
+    @apply text-orange-600 bg-orange-50 border-orange-200 dark:text-orange-400 dark:bg-orange-950 dark:border-orange-800;
+  }
+  
+  /* Progress Indicators */
+  .progress-bar {
+    @apply w-full bg-gray-200 rounded-full h-2 dark:bg-gray-700;
+  }
+  
+  .progress-bar__fill {
+    @apply h-2 rounded-full transition-all duration-500 ease-out;
+  }
+  
+  .progress-bar__fill--excellent {
+    @apply bg-gradient-to-r from-green-400 to-green-600;
+  }
+  
+  .progress-bar__fill--good {
+    @apply bg-gradient-to-r from-blue-400 to-blue-600;
+  }
+  
+  .progress-bar__fill--needs-improvement {
+    @apply bg-gradient-to-r from-orange-400 to-orange-600;
+  }
+  
+  /* Assessment Result Styles */
+  .assessment-result--pass {
+    @apply text-green-700 bg-green-100 border-green-300 dark:text-green-400 dark:bg-green-950 dark:border-green-800;
+  }
+  
+  .assessment-result--fail {
+    @apply text-red-700 bg-red-100 border-red-300 dark:text-red-400 dark:bg-red-950 dark:border-red-800;
+  }
+  
+  /* Recommendation Cards */
+  .recommendation-card {
+    @apply bg-white rounded-xl border border-gray-200 shadow-sm border-l-4 border-l-purple-500 bg-gradient-to-r from-purple-50 to-transparent;
+    @apply hover:shadow-lg transition-all duration-300 dark:from-purple-950 dark:to-transparent;
+  }
+  
+  /* Analytics Display Components */
+  .metric-card {
+    @apply bg-white rounded-xl border border-gray-200 shadow-sm p-6 text-center;
+    @apply hover:shadow-lg transition-all duration-300;
+  }
+  
+  .metric-card__value {
+    @apply text-3xl font-bold text-foreground;
+  }
+  
+  .metric-card__label {
+    @apply text-sm font-medium text-muted-foreground mt-1;
+  }
+  
+  .metric-card__icon {
+    @apply w-8 h-8 mx-auto mb-3 text-muted-foreground;
+  }
+  
+  /* Interactive Elements */
+  .btn-educational {
+    @apply inline-flex items-center justify-center rounded-lg text-sm font-medium;
+    @apply transition-all duration-150 focus-visible:outline-none focus-visible:ring-2;
+    @apply disabled:pointer-events-none disabled:opacity-50;
+  }
+  
+  .btn-educational--primary {
+    @apply inline-flex items-center justify-center rounded-lg text-sm font-medium;
+    @apply transition-all duration-150 focus-visible:outline-none focus-visible:ring-2;
+    @apply disabled:pointer-events-none disabled:opacity-50;
+    @apply bg-primary text-primary-foreground hover:bg-primary/90;
+    @apply focus-visible:ring-primary;
+  }
+  
+  .btn-educational--secondary {
+    @apply inline-flex items-center justify-center rounded-lg text-sm font-medium;
+    @apply transition-all duration-150 focus-visible:outline-none focus-visible:ring-2;
+    @apply disabled:pointer-events-none disabled:opacity-50;
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/80;
+    @apply focus-visible:ring-secondary;
+  }
+  
+  /* Form Elements for Educational Content */
+  .form-input-educational {
+    @apply flex h-10 w-full rounded-lg border border-gray-300;
+    @apply bg-white px-3 py-2 text-sm;
+    @apply file:border-0 file:bg-transparent file:text-sm file:font-medium;
+    @apply placeholder:text-gray-500 focus-visible:outline-none;
+    @apply focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2;
+    @apply disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  
+  /* Indonesian Typography Optimizations */
+  .text-indonesian {
+    @apply font-medium tracking-[0.01em] leading-relaxed;
+  }
+  
+  .heading-indonesian {
+    @apply font-semibold font-medium tracking-[0.01em] leading-relaxed;
+  }
+}
+
+/* Responsive Design Enhancements */
+@layer utilities {
+  /* Mobile-First Spacing */
+  .space-mobile {
+    @apply space-y-4 md:space-y-6 lg:space-y-8;
+  }
+  
+  .p-mobile {
+    @apply p-4 md:p-6 lg:p-8;
+  }
+  
+  /* Responsive Typography */
+  .text-responsive-xs {
+    @apply text-xs md:text-sm;
+  }
+  
+  .text-responsive-sm {
+    @apply text-sm md:text-base;
+  }
+  
+  .text-responsive-base {
+    @apply text-base md:text-lg;
+  }
+  
+  .text-responsive-lg {
+    @apply text-lg md:text-xl lg:text-2xl;
+  }
+  
+  .text-responsive-xl {
+    @apply text-xl md:text-2xl lg:text-3xl;
+  }
+  
+  /* Grid Responsive Patterns */
+  .grid-educational {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4;
+  }
+  
+  .grid-analytics {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4;
+  }
+  
+  /* Accessibility Enhancements */
+  .focus-educational {
+    @apply focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary;
+  }
+  
+  .sr-only-educational {
+    @apply sr-only;
+  }
+  
+  /* High Contrast Mode Support */
+  @media (prefers-contrast: high) {
+    .learning-card {
+      @apply border-2 border-black;
+    }
+    
+    .btn-educational--primary {
+      @apply border-2 border-black;
+    }
+  }
+  
+  /* Reduced Motion Support */
+  @media (prefers-reduced-motion: reduce) {
+    .learning-card--interactive {
+      @apply hover:scale-100;
+    }
+    
+    .progress-bar__fill {
+      @apply transition-none;
+    }
+    
+    * {
+      @apply transition-none animate-none;
+    }
+  }
+}
+
+/* Print Styles for Educational Reports */
+@media print {
+  .learning-card {
+    @apply break-inside-avoid border border-gray-300;
+  }
+  
+  .metric-card {
+    @apply text-black bg-white;
+  }
+  
+  .btn-educational,
+  .btn-educational--primary,
+  .btn-educational--secondary {
+    @apply hidden;
+  }
+  
+  .progress-bar {
+    @apply bg-gray-200;
+  }
+  
+  .progress-bar__fill {
+    @apply bg-gray-600;
+  }
+}
+
+/* Custom Properties for Dynamic Theming */
+.theme-educational {
+  --primary-hue: 214;
+  --primary-saturation: 80%;
+  --primary-lightness: 52%;
+}
+
+.theme-indonesian {
+  --accent-hue: 348;
+  --accent-saturation: 83%;
+  --accent-lightness: 47%;
+}

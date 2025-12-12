@@ -9,12 +9,16 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Student\ContentController as StudentContentController;
 use App\Http\Controllers\Teacher\ContentController as TeacherContentController;
 use App\Http\Controllers\Student\AnalyticsController as StudentAnalyticsController;
+use App\Http\Controllers\LandingPageController;
 
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canRegister' => Features::enabled(Features::registration()),
-    ]);
-})->name('home');
+// Landing Page Routes
+Route::get('/', [LandingPageController::class, 'index'])->name('home');
+Route::get('/demo', [LandingPageController::class, 'demo'])->name('demo');
+Route::post('/demo/learning-style', [LandingPageController::class, 'demoAssessment'])->name('demo.assessment');
+Route::post('/contact', [LandingPageController::class, 'contact'])->name('contact');
+Route::post('/newsletter', [LandingPageController::class, 'newsletter'])->name('newsletter');
+Route::get('/features', [LandingPageController::class, 'features'])->name('features');
+Route::get('/about', [LandingPageController::class, 'about'])->name('about');
 
 // Unified Dashboard Route based on user role
 Route::middleware(['auth', 'verified'])->group(function () {

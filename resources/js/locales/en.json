@@ -1,0 +1,519 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "success": "Success",
+    "cancel": "Cancel",
+    "save": "Save",
+    "edit": "Edit",
+    "delete": "Delete",
+    "confirm": "Confirm",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "submit": "Submit",
+    "search": "Search",
+    "filter": "Filter",
+    "clear": "Clear",
+    "view_all": "View All",
+    "show_more": "Show More",
+    "show_less": "Show Less",
+    "refresh": "Refresh",
+    "print": "Print",
+    "download": "Download",
+    "upload": "Upload",
+    "copy": "Copy",
+    "share": "Share",
+    "help": "Help",
+    "settings": "Settings",
+    "profile": "Profile",
+    "logout": "Logout",
+    "login": "Login",
+    "register": "Register",
+    "welcome": "Welcome",
+    "dashboard": "Dashboard",
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact",
+    "privacy": "Privacy",
+    "terms": "Terms and Conditions"
+  },
+  "navigation": {
+    "main_menu": "Main Menu",
+    "dashboard": "Dashboard",
+    "learning_profile": "Learning Profile",
+    "content_library": "Content Library",
+    "recommendations": "Recommendations",
+    "progress": "Progress",
+    "assessments": "Assessments",
+    "analytics": "Analytics",
+    "feedback": "Feedback",
+    "settings": "Settings",
+    "help": "Help",
+    "notifications": "Notifications"
+  },
+  "authentication": {
+    "login": {
+      "title": "Sign In to Your Account",
+      "description": "Enter your email and password to access the learning platform",
+      "email": "Email Address",
+      "password": "Password",
+      "remember_me": "Remember me",
+      "forgot_password": "Forgot password?",
+      "login_button": "Sign In",
+      "no_account": "Don't have an account?",
+      "register_here": "Register here",
+      "invalid_credentials": "Invalid email or password",
+      "account_locked": "Your account has been locked. Please contact administrator.",
+      "success": "Successfully signed in. Welcome back!"
+    },
+    "register": {
+      "title": "Create New Account",
+      "description": "Register to start your personalized learning journey",
+      "full_name": "Full Name",
+      "email": "Email Address",
+      "password": "Password",
+      "confirm_password": "Confirm Password",
+      "student_number": "Student Number",
+      "grade_level": "Grade Level",
+      "terms_agreement": "I agree to the terms and conditions",
+      "register_button": "Register",
+      "already_have_account": "Already have an account?",
+      "login_here": "Sign in here",
+      "registration_success": "Registration successful! Please verify your email.",
+      "email_already_exists": "Email already registered",
+      "weak_password": "Password too weak. Use at least 8 characters with letters, numbers, and symbols."
+    },
+    "forgot_password": {
+      "title": "Forgot Password",
+      "description": "Enter your email to receive a password reset link",
+      "email": "Email Address",
+      "send_reset_link": "Send Reset Link",
+      "back_to_login": "Back to sign in",
+      "reset_link_sent": "Password reset link sent to your email",
+      "email_not_found": "Email not found in system"
+    }
+  },
+  "profile_setup": {
+    "title": "Profile Setup",
+    "description": "Complete your profile for an optimal learning experience",
+    "progress_indicator": "Step {current} of {total}",
+    "biodata": {
+      "title": "Basic Information",
+      "full_name": "Full Name",
+      "student_number": "Student Number",
+      "grade_level": "Grade Level",
+      "grade_10": "Grade 10",
+      "grade_11": "Grade 11",
+      "grade_12": "Grade 12",
+      "class": "Class",
+      "major": "Major",
+      "ipa": "Science (IPA)",
+      "ips": "Social Studies (IPS)",
+      "language": "Language",
+      "preferred_language": "Preferred Language",
+      "indonesian": "Indonesian",
+      "english": "English"
+    },
+    "grades": {
+      "title": "Report Card Grades",
+      "description": "Enter your last semester grades for ability analysis",
+      "subject": "Subject",
+      "grade": "Grade",
+      "semester": "Semester",
+      "academic_year": "Academic Year",
+      "mathematics": "Mathematics",
+      "physics": "Physics",
+      "chemistry": "Chemistry",
+      "biology": "Biology",
+      "indonesian_language": "Indonesian Language",
+      "english_language": "English Language",
+      "history": "Indonesian History",
+      "geography": "Geography",
+      "economics": "Economics",
+      "civic_education": "Civic Education"
+    },
+    "learning_style": {
+      "title": "Learning Style",
+      "description": "Take a survey to determine your learning style",
+      "take_survey": "Take Survey",
+      "survey_description": "This survey will help determine if you learn better through visual, auditory, or kinesthetic methods",
+      "question_count": "{current} of {total} questions",
+      "scale_labels": {
+        "1": "Strongly Disagree",
+        "2": "Disagree",
+        "3": "Neutral",
+        "4": "Agree",
+        "5": "Strongly Agree"
+      },
+      "submit_survey": "Submit Survey",
+      "analyzing": "Analyzing your learning style...",
+      "analysis_complete": "Analysis complete! Your learning style has been determined."
+    },
+    "completion": {
+      "title": "Profile Complete",
+      "congratulations": "Congratulations! Your profile is now complete",
+      "summary": "Your profile summary:",
+      "dominant_learning_style": "Dominant learning style: {style}",
+      "grade_average": "Grade average: {average}",
+      "go_to_dashboard": "Start Learning"
+    }
+  },
+  "learning_styles": {
+    "visual": {
+      "name": "Visual",
+      "description": "Learn best through images, diagrams, and visual representations",
+      "characteristics": [
+        "Prefer information presented visually",
+        "Remember well through diagrams and charts",
+        "Enjoy taking colorful notes",
+        "Easily understand concept maps and mind maps"
+      ],
+      "study_tips": [
+        "Use diagrams and charts to understand concepts",
+        "Take notes with different colors",
+        "Watch educational videos",
+        "Use flashcards with images",
+        "Create mind maps for material summaries"
+      ]
+    },
+    "auditory": {
+      "name": "Auditory",
+      "description": "Learn best through listening and verbal discussion",
+      "characteristics": [
+        "Understand well through verbal explanations",
+        "Enjoy discussions and explaining back",
+        "Easily remember heard information",
+        "Prefer podcasts and audio learning"
+      ],
+      "study_tips": [
+        "Listen to educational audio recordings",
+        "Discuss material with friends or teachers",
+        "Read material aloud",
+        "Use background music while studying",
+        "Follow educational podcasts"
+      ]
+    },
+    "kinesthetic": {
+      "name": "Kinesthetic",
+      "description": "Learn best through hands-on practice and physical movement",
+      "characteristics": [
+        "Prefer hands-on learning",
+        "Get bored with theory without practice",
+        "Enjoy moving while learning",
+        "Understand well through experiments"
+      ],
+      "study_tips": [
+        "Conduct experiments and simulations",
+        "Use learning aids while studying",
+        "Study while walking or moving",
+        "Build models or prototypes",
+        "Participate in laboratory practicum"
+      ]
+    },
+    "mixed": {
+      "name": "Mixed",
+      "description": "Have a combination of various learning styles",
+      "characteristics": [
+        "Can adapt to various learning methods",
+        "Effective with multimodal approaches",
+        "Flexible in choosing learning strategies"
+      ],
+      "study_tips": [
+        "Combine various learning methods",
+        "Adapt to conditions and material",
+        "Utilize strengths of each learning style"
+      ]
+    }
+  },
+  "dashboard": {
+    "welcome": "Welcome, {name}!",
+    "overview": "Learning Overview",
+    "quick_stats": "Quick Stats",
+    "completed_modules": "Completed Modules",
+    "study_hours": "Study Hours",
+    "average_score": "Average Score",
+    "improvement": "Improvement",
+    "learning_style_profile": "Learning Style Profile",
+    "dominant_style": "Dominant Style",
+    "recommendations": "Recommendations",
+    "recommended_for_you": "Recommended for You",
+    "recent_activity": "Recent Activity",
+    "upcoming_assessments": "Upcoming Assessments",
+    "progress_this_week": "This Week's Progress",
+    "view_analytics": "View Detailed Analytics",
+    "continue_learning": "Continue Learning",
+    "no_recent_activity": "No recent activity",
+    "start_learning": "Start learning to see your progress"
+  },
+  "content": {
+    "library": "Content Library",
+    "search_content": "Search content...",
+    "filter_by_subject": "Filter by subject",
+    "filter_by_type": "Filter by type",
+    "filter_by_difficulty": "Filter by difficulty",
+    "content_types": {
+      "video": "Video",
+      "pdf": "PDF Document",
+      "audio": "Audio",
+      "interactive": "Interactive",
+      "text": "Text"
+    },
+    "difficulty_levels": {
+      "beginner": "Beginner",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced"
+    },
+    "subjects": {
+      "mathematics": "Mathematics",
+      "physics": "Physics",
+      "chemistry": "Chemistry",
+      "biology": "Biology"
+    },
+    "duration": "Duration: {minutes} minutes",
+    "rating": "Rating: {rating}/5",
+    "views": "{count} views",
+    "start_content": "Start",
+    "continue_content": "Continue",
+    "completed": "Completed",
+    "mark_complete": "Mark Complete",
+    "download": "Download",
+    "bookmark": "Bookmark",
+    "share": "Share",
+    "related_content": "Related Content",
+    "no_content_found": "No content found",
+    "loading_content": "Loading content...",
+    "content_error": "Failed to load content"
+  },
+  "assessments": {
+    "title": "Assessments",
+    "available_assessments": "Available Assessments",
+    "completed_assessments": "Completed Assessments",
+    "upcoming_assessments": "Upcoming Assessments",
+    "assessment_types": {
+      "quiz": "Quiz",
+      "exam": "Exam",
+      "assignment": "Assignment"
+    },
+    "start_assessment": "Start Assessment",
+    "continue_assessment": "Continue Assessment",
+    "submit_assessment": "Submit Assessment",
+    "time_remaining": "Time remaining: {time}",
+    "question_navigation": "Question {current} of {total}",
+    "mark_for_review": "Mark for Review",
+    "previous_question": "Previous Question",
+    "next_question": "Next Question",
+    "submit_confirmation": "Are you sure you want to submit your answers?",
+    "cannot_change_after_submit": "You cannot change answers after submitting",
+    "assessment_results": {
+      "title": "Assessment Results",
+      "score": "Your Score",
+      "percentage": "Percentage",
+      "time_taken": "Time Taken",
+      "correct_answers": "Correct Answers",
+      "incorrect_answers": "Incorrect Answers",
+      "feedback": "Feedback",
+      "improvement_suggestions": "Improvement Suggestions",
+      "retake_assessment": "Retake Assessment",
+      "view_detailed_results": "View Detailed Results"
+    }
+  },
+  "analytics": {
+    "title": "Learning Analytics",
+    "overview": "Overview",
+    "detailed_performance": "Detailed Performance",
+    "learning_journey": "Learning Journey",
+    "study_patterns": "Study Patterns",
+    "time_periods": {
+      "day": "Day",
+      "week": "Week",
+      "month": "Month",
+      "quarter": "Quarter"
+    },
+    "metrics": {
+      "engagement_score": "Engagement Score",
+      "average_score": "Average Score",
+      "study_hours": "Study Hours",
+      "improvement_trend": "Improvement Trend",
+      "content_views": "Content Views",
+      "completions": "Completions",
+      "study_sessions": "Study Sessions",
+      "total_assessments": "Total Assessments"
+    },
+    "learning_style_analysis": {
+      "title": "Learning Style Analysis",
+      "dominant_style": "Dominant Style",
+      "style_distribution": "Style Distribution",
+      "confidence_score": "Confidence Score",
+      "last_updated": "Last Updated"
+    },
+    "performance_trends": {
+      "title": "Performance Trends",
+      "improving": "Improving",
+      "declining": "Declining",
+      "stable": "Stable",
+      "weekly_progress": "Weekly Progress",
+      "monthly_progress": "Monthly Progress"
+    },
+    "study_recommendations": {
+      "title": "Study Recommendations",
+      "based_on_performance": "Based on your performance",
+      "suggested_content": "Suggested Content",
+      "study_schedule": "Study Schedule",
+      "focus_areas": "Focus Areas"
+    },
+    "recent_feedback": "Recent Feedback",
+    "no_data_available": "No data available for this period",
+    "export_report": "Export Report"
+  },
+  "feedback": {
+    "title": "Feedback",
+    "recent_feedback": "Recent Feedback",
+    "feedback_types": {
+      "auto": "Automatic",
+      "teacher": "Teacher",
+      "system": "System"
+    },
+    "sentiment": {
+      "positive": "Positive",
+      "neutral": "Neutral",
+      "constructive": "Constructive"
+    },
+    "mark_as_read": "Mark as Read",
+    "action_items": "Action Items",
+    "priority": {
+      "high": "High",
+      "medium": "Medium",
+      "low": "Low"
+    },
+    "no_feedback": "No feedback yet",
+    "feedback_helpful": "Was this feedback helpful?",
+    "yes": "Yes",
+    "no": "No",
+    "thank_you": "Thank you for your feedback!"
+  },
+  "recommendations": {
+    "title": "Learning Recommendations",
+    "personalized": "Personalized for You",
+    "based_on_learning_style": "Based on your learning style",
+    "based_on_performance": "Based on your performance",
+    "trending": "Trending",
+    "new_content": "New Content",
+    "recommended_by_ai": "AI Recommended",
+    "relevance_score": "Relevance Score",
+    "why_recommended": "Why recommended?",
+    "view_content": "View Content",
+    "not_interested": "Not Interested",
+    "save_for_later": "Save for Later",
+    "similar_content": "Similar Content",
+    "no_recommendations": "No recommendations available yet",
+    "refresh_recommendations": "Refresh Recommendations"
+  },
+  "progress": {
+    "title": "Learning Progress",
+    "overall_progress": "Overall Progress",
+    "by_subject": "By Subject",
+    "competency_map": "Competency Map",
+    "learning_milestones": "Learning Milestones",
+    "completed": "Completed",
+    "in_progress": "In Progress",
+    "not_started": "Not Started",
+    "mastery_level": {
+      "beginner": "Beginner",
+      "developing": "Developing",
+      "proficient": "Proficient",
+      "advanced": "Advanced"
+    },
+    "skills": {
+      "acquired": "Skills Acquired",
+      "developing": "Skills Developing",
+      "target": "Target Skills"
+    },
+    "achievements": {
+      "title": "Achievements",
+      "badges": "Badges",
+      "certificates": "Certificates",
+      "streaks": "Study Streaks"
+    },
+    "study_streak": "{days} day study streak",
+    "next_milestone": "Next milestone",
+    "progress_chart": "Progress Chart",
+    "detailed_breakdown": "Detailed Breakdown"
+  },
+  "errors": {
+    "generic": "An unexpected error occurred",
+    "network": "Network connection problem",
+    "server": "Server error",
+    "not_found": "Page not found",
+    "unauthorized": "Access not authorized",
+    "forbidden": "Access denied",
+    "validation": "Invalid data entered",
+    "timeout": "Request timeout",
+    "try_again": "Try again",
+    "contact_support": "Contact technical support if problem persists",
+    "offline": "You are offline",
+    "reconnecting": "Trying to reconnect...",
+    "connection_restored": "Connection restored"
+  },
+  "accessibility": {
+    "skip_to_content": "Skip to main content",
+    "skip_to_navigation": "Skip to navigation",
+    "skip_to_search": "Skip to search",
+    "screen_reader_only": "Screen reader only",
+    "image_alt": "Image",
+    "loading_image": "Loading image",
+    "expand": "Expand",
+    "collapse": "Collapse",
+    "menu": "Menu",
+    "submenu": "Submenu",
+    "open": "Open",
+    "close": "Close",
+    "current_page": "Current page",
+    "external_link": "External link",
+    "new_window": "Open in new window",
+    "required_field": "Required field",
+    "invalid_input": "Invalid input",
+    "character_count": "{count} characters",
+    "high_contrast_mode": "High contrast mode",
+    "large_text_mode": "Large text mode",
+    "reduced_motion": "Reduced motion"
+  },
+  "time": {
+    "now": "now",
+    "minutes_ago": "{count} minutes ago",
+    "hours_ago": "{count} hours ago",
+    "days_ago": "{count} days ago",
+    "weeks_ago": "{count} weeks ago",
+    "months_ago": "{count} months ago",
+    "years_ago": "{count} years ago",
+    "in_minutes": "in {count} minutes",
+    "in_hours": "in {count} hours",
+    "in_days": "in {count} days",
+    "today": "today",
+    "yesterday": "yesterday",
+    "tomorrow": "tomorrow",
+    "this_week": "this week",
+    "last_week": "last week",
+    "next_week": "next week",
+    "this_month": "this month",
+    "last_month": "last month",
+    "next_month": "next month"
+  },
+  "units": {
+    "minutes": "minutes",
+    "hours": "hours",
+    "days": "days",
+    "weeks": "weeks",
+    "months": "months",
+    "years": "years",
+    "percent": "percent",
+    "points": "points",
+    "items": "items",
+    "pages": "pages",
+    "questions": "questions",
+    "topics": "topics",
+    "modules": "modules",
+    "lessons": "lessons"
+  }
+}
