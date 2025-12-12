@@ -10,7 +10,8 @@ class LearningActivity extends Model
 {
     use HasFactory;
 
-    public $timestamps = false; // Only has created_at
+    // Only has created_at timestamp, not updated_at
+    const UPDATED_AT = null;
 
     protected $fillable = [
         'student_id',

@@ -55,10 +55,10 @@ class DashboardController extends Controller
         
         if ($user->role === 'student') {
             $controller = app(\App\Http\Controllers\Student\ContentController::class);
-            return $controller->show($request, $id);
+            return $controller->show($id);
         } elseif ($user->role === 'teacher') {
             $controller = app(\App\Http\Controllers\Teacher\ContentController::class);
-            return $controller->show($request, $id);
+            return $controller->show($id);
         }
         
         abort(403, 'Unauthorized');

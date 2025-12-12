@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import Icon from '@/components/Icon.vue'
+import dashboard from '@/routes/dashboard'
 
 const props = defineProps({
   content: {
@@ -78,6 +79,9 @@ const formattedDuration = computed(() => {
   }
   return `${minutes}m`
 })
+
+// Generate dashboard URL for content
+const contentUrl = computed(() => dashboard.show({ id: props.content.id }).url)
 
 const ratingStars = computed(() => {
   const rating = props.content.rating || 0
@@ -205,20 +209,19 @@ const ratingStars = computed(() => {
 
     <CardFooter v-if="showActions" class="pt-0">
       <div class="flex gap-2 w-full">
-        <Button
-          as="Link"
-          :href="`/dashboard/${content.id}`"
-          class="flex-1"
-          variant="default"
+        <!-- Working Solution: Direct Inertia Link -->
+        <Link
+          :href="contentUrl"
+          class="flex-1 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2"
         >
           <Icon name="play" class="w-4 h-4 mr-2" />
           {{ hasCompleted ? 'Review' : 'Start' }}
-        </Button>
+        </Link>
         
         <Button
           v-if="content.file_url && content.content_type === 'pdf'"
           as="Link"
-          :href="`/dashboard/${content.id}/download`"
+          :href="dashboard.download({ id: content.id }).url"
           variant="outline"
           size="sm"
         >
