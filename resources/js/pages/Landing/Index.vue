@@ -6,7 +6,7 @@
         <div class="flex justify-between items-center py-4">
           <div class="flex items-center">
             <h1 class="text-2xl font-bold text-gray-900">
-              🧠 AI Learning Platform
+              🧠 Edupersona AI
             </h1>
           </div>
           <nav class="flex items-center space-x-4">
@@ -202,7 +202,7 @@
     <footer class="bg-gray-900 text-white py-12">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center">
-          <h3 class="text-2xl font-bold mb-4">AI Learning Platform</h3>
+          <h3 class="text-2xl font-bold mb-4">Edupersona AI</h3>
           <p class="text-gray-400 mb-4">
             Platform pembelajaran berbasis AI untuk siswa SMA/SMK Indonesia
           </p>
